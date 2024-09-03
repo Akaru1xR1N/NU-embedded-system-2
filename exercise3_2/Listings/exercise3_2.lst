@@ -1,0 +1,75 @@
+C51 COMPILER V9.60.7.0   EXERCISE3_2                                                       01/08/2024 15:09:42 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE EXERCISE3_2
+OBJECT MODULE PLACED IN .\Objects\exercise3_2.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE exercise3_2.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listin
+                    -gs\exercise3_2.lst) TABS(2) OBJECT(.\Objects\exercise3_2.obj)
+
+line level    source
+
+   1          #include<reg52.h> // ดึง library เพื่อใช้ควบคุม 8051
+   2          #include<stdio.h>
+   3          
+   4          sfr CKCON = 0x8F; // กำหนดตัวแปรชื่อ CKCON เพื่อใช้ปรั
+             -บความถี่ clock
+   5          
+   6          void delayms(unsigned long); // ประกาศ prototype function
+   7          
+   8          void main(){ // ฟังก์ชันหลัก
+   9   1        CKCON = 0x01; // ตั้งค่าความถี่ clock ให้มีค่ามากกว
+             -่าปกติ 2 เท่า (58.9824)
+  10   1        P2 = 0x00; // เซ็ต port P2 ให้เท่ากับ 0 ทุกบิต
+  11   1        while (1){ // infinite loop
+  12   2          TMOD = 0x61; // ตั้งค่า timer mode ให้ใช้ counter 1 mode 2 และ timer 0 m
+             -ode 1
+  13   2          TH1 = 0x9B; // ตั้งค่าเวลา
+  14   2          // 9B = 155 = 2**8-155 = delay 100 mc
+  15   2          TF1 = 0; // clear timer flag
+  16   2          TR1 = 1; // เปิดใช้ timer 1
+  17   2          while (!TF1){
+  18   3            // เช็คว่าเกิด overflow รึยัง ถ้ายังให้ลูปจ�
+             -�กว่าจะเกิด overflow
+  19   3          }
+  20   2          TF1 = 0; // clear timer flag
+  21   2          TR1 = 0; // ปิดการใช้งาน timer 1
+  22   2          P2 = 0x01; // เซ็ต port P2 ให้เท่ากับ 00000001
+  23   2          delayms(1000); // ตั้งค่า delay
+  24   2          P2 = 0x00; // เซ็ต port P2 ให้เท่ากับ 0 ทุกบิต
+  25   2          delayms(1000); // ตั้งค่า delay
+  26   2        }
+  27   1      }
+  28          
+  29          void delayms(unsigned long i){ // ฟังก์ชัน delay
+  30   1        while (i>0){ // วนลูปจนกว่าค่า i จะเท่ากับ 0
+  31   2          // EC77 = 60535 = delay 5000 machine cycle
+  32   2          TH0 = 0xEC; // ตั้งค่าเวลา
+  33   2          TL0 = 0x77; // ตั้งค่าเวลา
+  34   2          TF0 = 0; // clear timer flag
+  35   2          TR0 = 1; // เปิดใช้ timer 0
+  36   2          while (!TF0){
+  37   3            // เช็คว่าเกิด overflow รึยัง ถ้ายังให้ลูปจ�
+             -�กว่าจะเกิด overflow
+  38   3          }
+  39   2          TF0 = 0; // clear timer flag
+  40   2          TR0 = 0; // ปิดการใช้งาน timer 0
+  41   2          i--; // ลดค่า i ลง 1
+  42   2        }
+  43   1        return ; // ไม่ return ค่าอะไรกลับไป
+  44   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    122    ----
+   CONSTANT SIZE    =   ----    ----
+C51 COMPILER V9.60.7.0   EXERCISE3_2                                                       01/08/2024 15:09:42 PAGE 2   
+
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,74 @@
+C51 COMPILER V9.60.7.0   LAB4_1                                                            01/05/2024 00:23:58 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE LAB4_1
+OBJECT MODULE PLACED IN .\Objects\lab4_1.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE lab4_1.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\la
+                    -b4_1.lst) TABS(2) OBJECT(.\Objects\lab4_1.obj)
+
+line level    source
+
+   1          #include<reg52.h> // ดึง library เพื่อใช้ควบคุม 8051
+   2          #include<stdio.h> // ดึง library เพื่อใช้ส่งข้อความผ่าน 
+             -serial port
+   3          
+   4          sfr CKCON = 0x8F; // กำหนดตัวแปรชื่อ CKCON เพื่อใช้ปรั
+             -บความถี่ clock
+   5          
+   6          void delay(unsigned long); // ประกาศ prototype function
+   7          
+   8          void main(){ // ฟังก์ชันหลัก
+   9   1        CKCON = 0x01; // ตั้งค่าความถี่ clock ให้มีค่ามากกว
+             -่าปกติ 2 เท่า (58.9824)
+  10   1        P2 = 0x00; // เซ็ต port P2 ให้เท่ากับ 0 ทุกบิต
+  11   1        
+  12   1        /*Initial MCS51 Serial Port */
+  13   1        // (1) Reset old Timer1 Mode Config
+  14   1        // (2) Update Timer1 = 8 Bit Auto Reload
+  15   1        // (3) Serial Port Mode 1 (N,8,1)
+  16   1        // (4) Disable Serial Interrupt
+  17   1        // (5) Disable Timer1 Interrupt
+  18   1        // (6) SMOD1 = 0 (Disable Double Baudrate)
+  19   1        // (7) Setup Timer1 Baudrate
+  20   1        // (8) 9600BPS / 58.9824 MHz
+  21   1        // (9) Start Timer1 Generate Baudrate
+  22   1        // (10) Set TI to send First char of UART
+  23   1        TMOD &= 0x0F;
+  24   1        TMOD |= 0x20;
+  25   1        SCON = 0x50;
+  26   1        ES = 0;
+  27   1        ET1 = 0;
+  28   1        PCON &= 0x7F;
+  29   1        TH1 = 0xF0;
+  30   1        TL1 = 0xF0;
+  31   1        TR1 = 1;
+  32   1        TI = 1;
+  33   1        
+  34   1        while (1){ // infinite loop
+  35   2          printf("HELLO\n\r"); // ส่งข้อความผ่าน Serial Port
+  36   2          delay(100000); // ตั้งค่า delay
+  37   2        }
+  38   1      }
+  39          
+  40          void delay(unsigned long i){ // ฟังก์ชัน delay
+  41   1        while (i>0){ // วนลูปจนกว่าค่า i จะเท่ากับ 0
+  42   2          i--; // ลดค่า i ลง 1
+  43   2        }
+  44   1        return ; // ไม่ return ค่าอะไรกลับไป
+  45   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    108    ----
+   CONSTANT SIZE    =      8    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.60.7.0   LAB4_1                                                            01/05/2024 00:23:58 PAGE 2   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

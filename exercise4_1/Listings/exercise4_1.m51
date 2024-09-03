@@ -1,0 +1,196 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    01/05/2024  03:57:32  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\exercise4_1.obj TO .\Objects\exercise4_1 PRINT (.\Listings\exercise4_1.m51) RAMSIZ
+>> E (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\exercise4_1.obj (EXERCISE4_1)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C?ULCMP)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (PRINTF)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C?CSTPTR)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C?PLDIIDATA)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C?CCASE)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (PUTCHAR)
+
+
+LINK MAP OF MODULE:  .\Objects\exercise4_1 (EXERCISE4_1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0014H     UNIT         _DATA_GROUP_
+                    001CH     0004H                  *** GAP ***
+            BIT     0020H.0   0001H.1   UNIT         _BIT_GROUP_
+                    0021H.1   0000H.7                *** GAP ***
+            IDATA   0022H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     035CH     UNIT         ?PR?PRINTF?PRINTF
+            CODE    0B5CH     009FH     UNIT         ?C?LIB_CODE
+            CODE    0BFBH     004AH     UNIT         ?PR?MAIN?EXERCISE4_1
+            CODE    0C45H     003EH     UNIT         ?PR?_DELAY?EXERCISE4_1
+            CODE    0C83H     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+            CODE    0CAAH     0020H     UNIT         ?CO?EXERCISE4_1
+            CODE    0CCAH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\exercise4_1 (EXERCISE4_1)
+
+
+SEGMENT                           BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH     START    LENGTH
+------------------------------------------------------------------
+?C_C51STARTUP                  -----    -----      -----    -----
+  +--> ?PR?MAIN?EXERCISE4_1
+
+?PR?MAIN?EXERCISE4_1           -----    -----      -----    -----
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/05/2024  03:57:32  PAGE 2
+
+
+  +--> ?CO?EXERCISE4_1
+  +--> ?PR?PRINTF?PRINTF
+  +--> ?PR?_DELAY?EXERCISE4_1
+
+?PR?PRINTF?PRINTF              0020H.0  0001H.1    0008H    0014H
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+?PR?_DELAY?EXERCISE4_1         -----    -----      0008H    0004H
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\exercise4_1 (EXERCISE4_1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        EXERCISE4_1
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:0C4DH         PUBLIC        _delay
+  B:00A8H.4       PUBLIC        ES
+  D:00B8H         PUBLIC        IP
+  B:0080H.0       PUBLIC        sw0
+  B:0080H.1       PUBLIC        sw1
+  B:0080H.2       PUBLIC        sw2
+  B:0098H.1       PUBLIC        TI
+  C:0BFBH         PUBLIC        main
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  B:00A8H.3       PUBLIC        ET1
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  D:00C8H         PUBLIC        T2CON
+  D:008FH         PUBLIC        CKCON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:0BFBH         LINE#         12
+  C:0BFBH         LINE#         13
+  C:0BFEH         LINE#         27
+  C:0C01H         LINE#         28
+  C:0C04H         LINE#         29
+  C:0C07H         LINE#         30
+  C:0C09H         LINE#         31
+  C:0C0BH         LINE#         32
+  C:0C0EH         LINE#         33
+  C:0C11H         LINE#         34
+  C:0C14H         LINE#         35
+  C:0C16H         LINE#         36
+  C:0C18H         LINE#         38
+  C:0C18H         LINE#         39
+  C:0C1BH         LINE#         40
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/05/2024  03:57:32  PAGE 3
+
+
+  C:0C21H         LINE#         41
+  C:0C21H         LINE#         42
+  C:0C23H         LINE#         43
+  C:0C26H         LINE#         44
+  C:0C2FH         LINE#         45
+  C:0C32H         LINE#         46
+  C:0C34H         LINE#         47
+  C:0C37H         LINE#         48
+  C:0C40H         LINE#         49
+  C:0C43H         LINE#         50
+  C:0C43H         LINE#         51
+  -------         ENDPROC       MAIN
+  -------         PROC          L?0013
+  -------         ENDPROC       L?0013
+  -------         PROC          _DELAY
+  D:0008H         SYMBOL        i
+  C:0C4DH         LINE#         54
+  C:0C55H         LINE#         55
+  C:0C68H         LINE#         56
+  C:0C80H         LINE#         57
+  C:0C82H         LINE#         59
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        EXERCISE4_1
+
+  -------         MODULE        ?C?ULCMP
+  C:0B5CH         PUBLIC        ?C?ULCMP
+  -------         ENDMOD        ?C?ULCMP
+
+  -------         MODULE        PRINTF
+  D:0008H         PUBLIC        ?_PRINTF517?BYTE
+  D:0008H         PUBLIC        ?_PRINTF?BYTE
+  D:0008H         PUBLIC        ?_SPRINTF517?BYTE
+  D:0008H         PUBLIC        ?_SPRINTF?BYTE
+  C:0862H         PUBLIC        _PRINTF
+  C:0862H         PUBLIC        _PRINTF517
+  C:085CH         PUBLIC        _SPRINTF
+  C:085CH         PUBLIC        _SPRINTF517
+  -------         ENDMOD        PRINTF
+
+  -------         MODULE        ?C?CLDPTR
+  C:0B6DH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0B86H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?CSTPTR
+  C:0BB3H         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        ?C?PLDIIDATA
+  C:0BC5H         PUBLIC        ?C?PLDIIDATA
+  -------         ENDMOD        ?C?PLDIIDATA
+
+  -------         MODULE        ?C?CCASE
+  C:0BD5H         PUBLIC        ?C?CCASE
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/05/2024  03:57:32  PAGE 4
+
+
+  -------         ENDMOD        ?C?CCASE
+
+  -------         MODULE        PUTCHAR
+  C:0C83H         PUBLIC        _PUTCHAR
+  -------         ENDMOD        PUTCHAR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00A8H BYTE ( 8%) *
+******************************************************************************
+
+Program Size: data=30.1 xdata=0 code=1241
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

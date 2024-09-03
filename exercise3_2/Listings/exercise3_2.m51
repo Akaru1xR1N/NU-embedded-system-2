@@ -1,0 +1,134 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    01/05/2024  05:25:42  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\exercise3_2.obj TO .\Objects\exercise3_2 PRINT (.\Listings\exercise3_2.m51) RAMSIZ
+>> E (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\exercise3_2.obj (EXERCISE3_2)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C?ULCMP)
+
+
+LINK MAP OF MODULE:  .\Objects\exercise3_2 (EXERCISE3_2)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0004H     UNIT         _DATA_GROUP_
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0047H     UNIT         ?PR?_DELAYMS?EXERCISE3_2
+            CODE    0847H     0033H     UNIT         ?PR?MAIN?EXERCISE3_2
+            CODE    087AH     0011H     UNIT         ?C?LIB_CODE
+            CODE    088BH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\exercise3_2 (EXERCISE3_2)
+
+
+SEGMENT                            DATA_GROUP 
+  +--> CALLED SEGMENT            START    LENGTH
+------------------------------------------------
+?C_C51STARTUP                    -----    -----
+  +--> ?PR?MAIN?EXERCISE3_2
+
+?PR?MAIN?EXERCISE3_2             -----    -----
+  +--> ?PR?_DELAYMS?EXERCISE3_2
+
+?PR?_DELAYMS?EXERCISE3_2         0008H    0004H
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\exercise3_2 (EXERCISE3_2)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        EXERCISE3_2
+  C:0000H         SYMBOL        _ICE_DUMMY_
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/05/2024  05:25:42  PAGE 2
+
+
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:0847H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  B:0088H.5       PUBLIC        TF0
+  B:0088H.7       PUBLIC        TF1
+  D:008CH         PUBLIC        TH0
+  D:008DH         PUBLIC        TH1
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  B:0088H.6       PUBLIC        TR1
+  D:00C8H         PUBLIC        T2CON
+  D:008FH         PUBLIC        CKCON
+  C:0800H         PUBLIC        _delayms
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:0847H         LINE#         7
+  C:0847H         LINE#         8
+  C:084AH         LINE#         9
+  C:084DH         LINE#         10
+  C:084DH         LINE#         11
+  C:0850H         LINE#         12
+  C:0853H         LINE#         14
+  C:0855H         LINE#         15
+  C:0857H         LINE#         16
+  C:085AH         LINE#         18
+  C:085AH         LINE#         19
+  C:085CH         LINE#         20
+  C:085EH         LINE#         21
+  C:0861H         LINE#         22
+  C:086CH         LINE#         23
+  C:086FH         LINE#         24
+  C:0878H         LINE#         25
+  -------         ENDPROC       MAIN
+  -------         PROC          _DELAYMS
+  D:0008H         SYMBOL        i
+  C:0800H         LINE#         28
+  C:0808H         LINE#         29
+  C:081BH         LINE#         31
+  C:081EH         LINE#         32
+  C:0821H         LINE#         33
+  C:0823H         LINE#         34
+  C:0825H         LINE#         35
+  C:0828H         LINE#         37
+  C:0828H         LINE#         38
+  C:082AH         LINE#         39
+  C:082CH         LINE#         40
+  C:0844H         LINE#         41
+  C:0846H         LINE#         43
+  -------         ENDPROC       _DELAYMS
+  -------         ENDMOD        EXERCISE3_2
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/05/2024  05:25:42  PAGE 3
+
+
+  -------         MODULE        ?C?ULCMP
+  C:087AH         PUBLIC        ?C?ULCMP
+  -------         ENDMOD        ?C?ULCMP
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 007AH BYTE ( 5%) *
+******************************************************************************
+
+Program Size: data=13.0 xdata=0 code=154
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

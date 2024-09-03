@@ -1,0 +1,60 @@
+C51 COMPILER V9.60.7.0   EXERCISE3_1                                                       01/05/2024 01:49:43 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE EXERCISE3_1
+OBJECT MODULE PLACED IN .\Objects\exercise3_1.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE exercise3_1.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listin
+                    -gs\exercise3_1.lst) TABS(2) OBJECT(.\Objects\exercise3_1.obj)
+
+line level    source
+
+   1          #include<reg52.h> // ดึง library เพื่อใช้ควบคุม 8051
+   2          
+   3          sfr CKCON = 0x8F; // กำหนดตัวแปรชื่อ CKCON เพื่อใช้ปรั
+             -บความถี่ clock
+   4          
+   5          void delay(unsigned long); // ประกาศ prototype function
+   6          
+   7          void main(){ // ฟังก์ชันหลัก
+   8   1        CKCON = 0x01; // ตั้งค่าความถี่ clock ให้มีค่ามากกว
+             -่าปกติ 2 เท่า (58.9824)
+   9   1        P2 = 0x00; // เซ็ต port P2 ให้เท่ากับ 0 ทุกบิต
+  10   1        while (1){ // infinite loop
+  11   2          TMOD = 0x60; // ตั้งค่า timer mode ให้ใช้ counter 1 mode 2
+  12   2          TH1 = 0x9B; // ตั้งค่าเวลา
+  13   2          // 9B = 155 = 2**8-155 = delay 100 mc
+  14   2          TF1 = 0; // clear timer flag
+  15   2          TR1 = 1; // เปิดใช้ timer 1
+  16   2          while (!TF1){
+  17   3            // เช็คว่าเกิด overflow รึยัง ถ้ายังให้ลูปจ�
+             -�กว่าจะเกิด overflow
+  18   3          }
+  19   2          TF1 = 0; // clear timer flag
+  20   2          TR1 = 0; // ปิดการใช้งาน timer 1
+  21   2          P2 = 0x01; // เซ็ต port P2 ให้เท่ากับ 00000001
+  22   2          delay(10000); // ตั้งค่า delay
+  23   2          P2 = 0x00; // เซ็ต port P2 ให้เท่ากับ 0 ทุกบิต
+  24   2          delay(10000); // ตั้งค่า delay
+  25   2        }
+  26   1      }
+  27          
+  28          void delay(unsigned long i){ // ฟังก์ชัน delay
+  29   1        while (i>0){ // วนลูปจนกว่าค่า i จะเท่ากับ 0
+  30   2          i--; // ลดค่า i ลง 1
+  31   2        }
+  32   1        return ; // ไม่ return ค่าอะไรกลับไป
+  33   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    105    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,162 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    12/25/2023  01:02:36  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\exercise02_2.obj TO .\Objects\exercise2_2 PRINT (.\Listings\exercise2_2.m51) RAMSI
+>> ZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\exercise02_2.obj (EXERCISE02_2)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C?ULCMP)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\exercise2_2 (EXERCISE02_2)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0008H     UNIT         _DATA_GROUP_
+            DATA    0010H     0004H     UNIT         ?DT?EXERCISE02_2
+            IDATA   0014H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0073H     UNIT         ?PR?MAIN?EXERCISE02_2
+            CODE    08FFH     0041H     UNIT         ?PR?_DELAY?EXERCISE02_2
+            CODE    0940H     0030H     UNIT         ?PR?_BLINK?EXERCISE02_2
+            CODE    0970H     0011H     UNIT         ?C?LIB_CODE
+            CODE    0981H     0005H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\exercise2_2 (EXERCISE02_2)
+
+
+SEGMENT                           DATA_GROUP 
+  +--> CALLED SEGMENT           START    LENGTH
+-----------------------------------------------
+?C_C51STARTUP                   -----    -----
+  +--> ?PR?MAIN?EXERCISE02_2
+  +--> ?C_INITSEG
+
+?PR?MAIN?EXERCISE02_2           0008H    0002H
+  +--> ?PR?_DELAY?EXERCISE02_2
+  +--> ?PR?_BLINK?EXERCISE02_2
+
+?PR?_DELAY?EXERCISE02_2         000CH    0004H
+
+?PR?_BLINK?EXERCISE02_2         000AH    0002H
+  +--> ?PR?_DELAY?EXERCISE02_2
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/25/2023  01:02:36  PAGE 2
+
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\exercise2_2 (EXERCISE02_2)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        EXERCISE02_2
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  B:0080H.0       PUBLIC        P0_0
+  B:0080H.1       PUBLIC        P0_1
+  C:090AH         PUBLIC        _delay
+  B:0080H.2       PUBLIC        P0_2
+  C:0940H         PUBLIC        _blink
+  B:0080H.3       PUBLIC        P0_3
+  B:0080H.4       PUBLIC        P0_4
+  B:0080H.5       PUBLIC        P0_5
+  B:0080H.6       PUBLIC        P0_6
+  B:0080H.7       PUBLIC        P0_7
+  D:00B8H         PUBLIC        IP
+  D:0010H         PUBLIC        baseDelayTime
+  D:0012H         PUBLIC        delayTime
+  C:088CH         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:008FH         PUBLIC        CKCON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        j
+  -------         ENDDO         
+  C:088CH         LINE#         20
+  C:088CH         LINE#         23
+  C:088FH         LINE#         25
+  C:0892H         LINE#         27
+  C:0892H         LINE#         28
+  C:0898H         LINE#         29
+  C:08A9H         LINE#         30
+  C:08A9H         LINE#         31
+  C:08ACH         LINE#         32
+  C:08B9H         LINE#         33
+  C:08B9H         LINE#         34
+  C:08BFH         LINE#         35
+  C:08D0H         LINE#         36
+  C:08D0H         LINE#         37
+  C:08D3H         LINE#         38
+  C:08E0H         LINE#         39
+  C:08E0H         LINE#         40
+  C:08E6H         LINE#         41
+  C:08EDH         LINE#         42
+  C:08EFH         LINE#         43
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/25/2023  01:02:36  PAGE 3
+
+
+  C:08F5H         LINE#         44
+  C:08FCH         LINE#         45
+  C:08FCH         LINE#         46
+  -------         ENDPROC       MAIN
+  C:0906H         SYMBOL        L?0029
+  -------         PROC          L?0028
+  -------         ENDPROC       L?0028
+  C:0906H         SYMBOL        L?0029
+  -------         PROC          _DELAY
+  D:000CH         SYMBOL        i
+  C:090AH         LINE#         49
+  C:0912H         LINE#         50
+  C:093FH         LINE#         52
+  -------         ENDPROC       _DELAY
+  -------         PROC          _BLINK
+  D:000AH         SYMBOL        i
+  C:0940H         LINE#         54
+  C:0944H         LINE#         55
+  C:094FH         LINE#         56
+  C:0952H         LINE#         57
+  C:0959H         LINE#         58
+  C:095CH         LINE#         59
+  C:0965H         LINE#         60
+  C:096DH         LINE#         61
+  C:096FH         LINE#         63
+  -------         ENDPROC       _BLINK
+  -------         ENDMOD        EXERCISE02_2
+
+  -------         MODULE        ?C?ULCMP
+  C:0970H         PUBLIC        ?C?ULCMP
+  -------         ENDMOD        ?C?ULCMP
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00E8H BYTE (11%) *
+******************************************************************************
+
+Program Size: data=21.0 xdata=0 code=393
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
